@@ -1,8 +1,23 @@
-<p>
-  Movie:{{movieIdNumber}}
-  <br>
-  {{movieDetails.title}}
-</p>
+<div class="container">
+  <div class="poster" [style.background]="'url(' + movieDetails.poster + ')'">
+  
+  </div>
+  <div class="details">
+    <h2>{{movieDetails.title}} </h2>
+    By {{movieDetails.director}} ({{movieDetails.year}})
+    <div class="genre-box">
+      <div class="genre-pill" *ngFor="let genre of movieDetails.genres">
+      {{genre}}
+      </div>
+    </div>
+    <div class="synopsis">{{movieDetails.synopsis}}</div>
+    <p>Cast</p>
+    <span *ngFor="let actor of movieDetails.actors">
+        <i class="fa fa-caret-right"></i> {{actor}}
+    </span>
+    
+  </div>
+</div>
 
 
-<p><a [routerLink]="['/']">Home</a>
+<a class="back-btn" [routerLink]="['/']"><i class="fa fa-chevron-left"></i></a>

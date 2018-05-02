@@ -13,6 +13,7 @@ export class MyMovieComponentComponent implements OnInit {
 
   movieIdNumber : Number;
   movieDetails : Object;
+  moviePoster : String;
   
 
   constructor(private movieServe : CinemaService, private router: Router, private route: ActivatedRoute) { }
@@ -20,7 +21,8 @@ export class MyMovieComponentComponent implements OnInit {
   ngOnInit() {
     this.route.params
       .subscribe((params) => this.movieIdNumber = Number(params['id']));
-      this.movieDetails = this.getMovieDetail(this.movieIdNumber)
+      this.movieDetails = this.getMovieDetail(this.movieIdNumber);
+      this.moviePoster = "background-image:url('"+this.getMovieDetail(this.movieIdNumber).poster+"')";
   }
 
   getMovieDetail(id){

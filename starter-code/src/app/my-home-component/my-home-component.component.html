@@ -1,13 +1,7 @@
 <div class="movie-container">
-    <div class="movie-card" *ngFor="let movie of movieList">
-      <p>ROOM {{movie.room}}</p>
-      
-      <div>
-        <img height="150px" src="{{movie.poster}}">
-      </div>
-  
-      <p><a [routerLink]="['/movie',movie.id]">{{movie.title}}</a>
-      </p>
+    <div class="movie-card" *ngFor="let movie of movieList" [style.background]="'url(' + movie.poster + ')'" [style.background-size] = "cover" >
+      <div class="room-title">ROOM {{movie.room}}</div>
+      <div class="movie-title"><a [routerLink]="['/movie',movie.id]">{{movie.title}}</a></div>
     </div>
-  </div>
+</div>
   
